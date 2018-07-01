@@ -3,13 +3,7 @@
 const webpack = require("webpack");
 const {VueLoaderPlugin} = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
-
-// import {VueLoaderPlugin} from 'vue-loader'
-// import HtmlWebpackPlugin from 'html-webpack-plugin'
-// import CopyWebpackPlugin from 'copy-webpack-plugin'
-// import path from 'path'
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -57,11 +51,6 @@ module.exports = {
       template: 'index.html',
       inject: true
     }),
-    new CopyWebpackPlugin([{
-      from: resolve('static/img'),
-      to: resolve('dist/static/img'),
-      toType: 'dir'
-    }]),
     new webpack.ProvidePlugin({
       "window.moment": "moment"
    }),
